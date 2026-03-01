@@ -40,3 +40,21 @@ func main() {
 	fmt.Println("Pi:", pi)
 	fmt.Println("Gravity:", gravity)
 }
+
+// output
+//
+// Name: John
+// Age: 30
+// Is Student: false
+// Height: 1.75
+// Weight: 70.5
+// Score: 85
+// Initial: 74
+// Complex Number: (1+2i)
+// Byte Value: 255
+// City: New York
+// Country: USA
+// Name2: Bob
+// Friend: Alice
+// Pi: 3.14
+// Gravity: 9.81
