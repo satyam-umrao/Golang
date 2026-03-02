@@ -57,3 +57,8 @@ func main() {
 	monthSeason(month)
 	temperature(temp)
 }
+
+// Output
+// Friday hay !
+// Winter ⛄
+// Cold 🧥
