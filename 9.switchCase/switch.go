@@ -59,6 +59,7 @@ func main() {
 }
 
 // Output
+//
 // Friday hay !
 // Winter ⛄
 // Cold 🧥
