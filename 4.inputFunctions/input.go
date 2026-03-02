@@ -21,3 +21,7 @@ func main() {
 	fullName, _ := reader.ReadString('\n')
 	fmt.Printf("👋 Hello ! %s", fullName)
 }
+
+// Output
+// Enter your full name : Satyam umrao
+// 👋 Hello ! Satyam umrao
