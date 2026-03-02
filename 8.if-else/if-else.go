@@ -33,15 +33,15 @@ func if_else_if(a int) {
 func nested_if(a, b, c int) {
 	if a > c {
 		if a > b {
-			fmt.Println("a is greater than b")
+			fmt.Println("a is greater than b and c")
 		} else {
-			fmt.Println("b is greater than a")
+			fmt.Println("b is greater than a and c")
 		}
 	} else {
 		if b > c {
-			fmt.Println("b is greater than c")
+			fmt.Println("b is greater than a and c")
 		} else {
-			fmt.Println("c is greater than b")
+			fmt.Println("c is greater than a and b")
 		}
 	}
 }
@@ -56,3 +56,9 @@ func main() {
 	if_else_if(a)
 	nested_if(a, b, c)
 }
+
+// Output
+// a is greater than 5
+// a is greater than 5
+// a is greater than 5
+// a is greater than b and c
