@@ -9,8 +9,7 @@ import (
 func main() {
 
 	// stanf only take one word as input
-
-	// fmt.Printf("Enter your name : ")
+	fmt.Printf("Enter your name : ")
 	var name string
 	fmt.Scanf("%s", &name)
 	fmt.Printf("👋 Hello ! %s", name)
