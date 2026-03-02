@@ -31,3 +31,18 @@ func main() {
 	fmt.Print("\nage is ", age)
 
 }
+
+// Output
+//
+// <<<-------using Println------->>>
+// age is 22
+// name is Satyam
+// height is 5.97
+
+// <<<-------using Printf------->>>
+// name is Satyam
+// age is 22
+// height is 5.97
+
+// <<<-------Without formatter------->>>
+// age is 22
