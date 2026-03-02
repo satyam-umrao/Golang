@@ -7,6 +7,6 @@ func format() {
 	//    |     for float type values		  |     %.2f		 |  .2 for 2 digit after (.)
 	//    |     for string type values        |     %s		     |
 	//    |     for checking type of values   |     %T           |
-	//    |    for changing line              |     \n           |  not a specifier
+	//    |     for changing line             |     \n           |  not a specifier
 	//    |<<---------------------------------|------------------|
 }
