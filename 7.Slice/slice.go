@@ -2,8 +2,8 @@ package main
 
 import "fmt"
 
-// Main function
-func main() {
+// initialization of slice
+func initialize() {
 	// slice creation method 1
 	// syntax: []dType{values}
 	slice1 := []int{1, 2, 3, 4, 5}
@@ -23,6 +23,18 @@ func main() {
 
 	fmt.Println("slice 3 length: ", len(slice3))
 	fmt.Println("slice 3 capacity: ", cap(slice3))
+}
+
+func appendToSlice() {
+	numbers := []int{}
+	numbers = append(numbers, 1, 2, 3, 4, 5)
+	fmt.Println("append :", numbers)
+}
+
+// Main function
+func main() {
+	// initialize()
+	appendToSlice()
 }
 
 // Output
