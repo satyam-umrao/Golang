@@ -33,7 +33,7 @@ func appendToSlice() {
 
 // Main function
 func main() {
-	// initialize()
+	initialize()
 	appendToSlice()
 }
 
@@ -43,3 +43,4 @@ func main() {
 // Slice 3 :  []
 // slice 3 length:  0
 // slice 3 capacity:  5
+// append : [1 2 3 4 5]
