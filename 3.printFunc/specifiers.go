@@ -12,6 +12,7 @@ func format() {
 	//    |     for float type values		  |     %.2f		 |  .2 for 2 digit after (.)     //
 	//    |     for string type values        |     %s		     |                               //
 	//    |     for checking type of values   |     %T           |                               //
+	//    |     for Quoted string type values |     %q           |                               //
 	//    |     for changing line             |     \n           |  not a specifier              //
 	//    |<<---------------------------------|------------------|                               //
 	//                                                                                           //
