@@ -24,3 +24,10 @@ func main() {
 	fmt.Println("slice 3 length: ", len(slice3))
 	fmt.Println("slice 3 capacity: ", cap(slice3))
 }
+
+// Output
+// Slice 1 :  [1 2 3 4 5]
+// Slice 2 :  [0 0 0 0 0]
+// Slice 3 :  []
+// slice 3 length:  0
+// slice 3 capacity:  5
