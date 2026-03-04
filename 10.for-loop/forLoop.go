@@ -57,3 +57,39 @@ func main() {
 	println("ForLoop In String")
 	ForLoopInString()
 }
+
+// Output
+//
+// Simple For loop
+// 0
+// 1
+// 2
+// 3
+// 4
+// Infinite for loop
+// ForLoop With Break
+// 0
+// 1
+// 2
+// 3
+// 4
+// 5
+// ForLoop In Slice
+// 0 Go
+// 1 Python
+// 2 Java
+// 3 C++
+// ForLoop In String
+// 0 H
+// 1 e
+// 2 l
+// 3 l
+// 4 o
+// 5 ,
+// 6
+// 7 W
+// 8 o
+// 9 r
+// 10 l
+// 11 d
+// 12 !
