@@ -58,6 +58,26 @@ func main() {
 		"Rishi": 76,
 	}
 	fmt.Printf("Aman score %d out of 100\n", testResult2["Aman"])
+
+	//nested map using new way to initialize
+	println("\n<<<-----Nested map using new way to initialize----->>>")
+	student2 := map[string]map[string]int{
+		"Aman": {
+			"Maths":   99,
+			"Science": 98,
+		},
+		"Rohan": {
+			"Maths":   94,
+			"Science": 90,
+		},
+		"Rishi": {
+			"Maths":   76,
+			"Science": 80,
+		},
+	}
+	for name, subject := range student2 {
+		fmt.Printf("%s score in Maths is %d and in Science is %d\n", name, subject["Maths"], subject["Science"])
+	}
 }
 
 // Output
