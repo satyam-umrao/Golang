@@ -14,6 +14,7 @@ func format() {
 	//    |     for checking type of values   |     %T           |                               //
 	//    |     for Quoted string type values |     %q           |                               //
 	//    |     for changing line             |     \n           |  not a specifier              //
+	//    |     for bool type values          |     %v or %t     |                               //
 	//    |<<---------------------------------|------------------|                               //
 	//                                                                                           //
 	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
