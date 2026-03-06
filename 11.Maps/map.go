@@ -37,4 +37,25 @@ func main() {
 	value, exists := testResult["Rishi"]
 	fmt.Printf("score of Rishi is %d (exists : %t)", value, exists)
 
+	//nested map
+	fmt.Println("\n<<<-----Nested map----->>>")
+	student := make(map[string]map[string]int)
+	student["Aman"] = make(map[string]int)
+	student["Aman"]["Maths"] = 99
+	student["Aman"]["Science"] = 98
+
+	fmt.Printf("Aman score in Maths is %d and in Science is %d\n", student["Aman"]["Maths"], student["Aman"]["Science"])
+
+	for name, subject := range student {
+		fmt.Printf("%s score in Maths is %d and in Science is %d\n", name, subject["Maths"], subject["Science"])
+	}
+
+	// new way to initialize map
+	fmt.Println("\n<<<-----new way to initialize map----->>>")
+	testResult2 := map[string]int{
+		"Aman":  99,
+		"Rohan": 94,
+		"Rishi": 76,
+	}
+	fmt.Printf("Aman score %d out of 100\n", testResult2["Aman"])
 }
