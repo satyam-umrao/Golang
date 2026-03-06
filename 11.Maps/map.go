@@ -59,3 +59,24 @@ func main() {
 	}
 	fmt.Printf("Aman score %d out of 100\n", testResult2["Aman"])
 }
+
+// Output
+// <<<-----Basic print method----->>>
+// Aman score 99 out of 100
+// <<<-----Print using for loop----->>>
+// Aman score 99 out of 100
+// Rohan score 94 out of 100
+// Rishi score 76 out of 100
+// <<<-----changing values----->>>
+// before : Rishi score 76 out of 100
+// After  : Rishi score 85 out of 100
+// <<<-----delete values----->>>
+// before : Rishi score 85 out of 100
+// After  : Rishi score 0 out of 100
+// score of Rishi is 0 (exists : false)
+// <<<-----Nested map----->>>
+// Aman score in Maths is 99 and in Science is 98
+// Aman score in Maths is 99 and in Science is 98
+
+// <<<-----new way to initialize map----->>>
+// Aman score 99 out of 100
