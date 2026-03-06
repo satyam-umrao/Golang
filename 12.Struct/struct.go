@@ -63,3 +63,12 @@ func main() {
 	fmt.Println("Updated Age:", e.Person_about.Age)
 
 }
+
+// Output
+// {John Doe 30}
+// First Name: John
+// Last Name: Doe
+// Age: 30
+// {{Alice Smith 28} {New York USA} {example@gmail.com 123-456-7890}}
+// Employee Name: Alice Smith
+// Updated Age: 29
