@@ -97,6 +97,11 @@ func main() {
 // <<<-----Nested map----->>>
 // Aman score in Maths is 99 and in Science is 98
 // Aman score in Maths is 99 and in Science is 98
-
+//
 // <<<-----new way to initialize map----->>>
 // Aman score 99 out of 100
+//
+// <<<-----Nested map using new way to initialize----->>>
+// Rishi score in Maths is 76 and in Science is 80
+// Aman score in Maths is 99 and in Science is 98
+// Rohan score in Maths is 94 and in Science is 90
