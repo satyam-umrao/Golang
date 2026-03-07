@@ -19,3 +19,10 @@ func main() {
 // here :
 // fmt.Println("Data:", data)                1 index
 // fmt.Println("Middle of the program")      0 index
+
+// Output
+//
+// Starting of the program
+// End of the program
+// Data: 30
+// Middle of the program
