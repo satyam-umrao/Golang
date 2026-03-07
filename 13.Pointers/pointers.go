@@ -36,3 +36,18 @@ func main() {
 	ChangeValueByRefrence(&number)
 	fmt.Println("new num", number)
 }
+
+// Output
+//
+// Value is 10
+// pointer address is 0x1d94172dc0a0
+// pointer points at value is 10
+
+// <<<---------2nd method--------->>>
+// num : 10 ; pointer : 0x1d94172dc0d0 ; points to : 10
+
+// <<<---------default value--------->>>
+// pointer do not points any value
+
+// <<<---------Chamging value--------->>>
+// new num 30
