@@ -26,7 +26,9 @@ func main() {
 
 	fmt.Println("\n<<<---------default value--------->>>")
 	var point *int
-	if point == nil {
+	if point != nil {
+		fmt.Println("pointer points to a value")
+	} else {
 		fmt.Println("pointer do not points any value")
 	}
 
