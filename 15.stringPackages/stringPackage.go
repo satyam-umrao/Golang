@@ -44,7 +44,38 @@ func main() {
 	a8 := "Hello"
 	fmt.Println(strings.Count(a8, "l"))
 
-	fmt.Println("\n----------Feilds----------")
+	fmt.Println("\n----------Fields----------")
 	a9 := "  welcome to golang "
 	fmt.Println(strings.Fields(a9))
 }
+
+// Output
+// ----------Split----------
+// [Hello World Go]
+
+// ----------Join----------
+// Hello,World,Go
+
+// ----------Contains----------
+// true
+// false
+
+// ----------HasPrefix & HasSuffix----------
+// true
+// true
+
+// ----------ToUpper & ToLower----------
+// HELLO, WORLD!
+// hello, world!
+
+// ----------Trim----------
+// Hello, World!
+
+// ----------index----------
+// 4
+
+// ----------Count----------
+// 2
+
+// ----------Feilds----------
+// [welcome to golang]
