@@ -22,3 +22,12 @@ func main() {
 	}
 	fmt.Println(string(data))
 }
+
+// Output
+// Web Request in Golang
+// {
+//   "userId": 1,
+//   "id": 2,
+//   "title": "quis ut nam facilis et officia qui",
+//   "completed": false
+// }
