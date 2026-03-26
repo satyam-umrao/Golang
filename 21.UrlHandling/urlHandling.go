@@ -32,3 +32,14 @@ func main() {
 	newURL := parsedURL.String()
 	fmt.Println("Modified URL:", newURL)
 }
+
+// Output
+// URL: https://www.example.com/path?query=123#fragment
+// type : string
+// Parsed URL: https://www.example.com/path?query=123#fragment
+// Scheme: https
+// Host: www.example.com
+// Path: /path
+// RawQuery: query=123
+// Fragment: fragment
+// Modified URL: https://www.example.com/newpath?query=456#newfragment
