@@ -34,3 +34,8 @@ func main() {
 	}
 	fmt.Println("Unmarshalled Data : ", person2)
 }
+
+// Output
+// Person Data :  {John Doe 30 Male}
+// JSON Data :  {"name":"John Doe","age":30,"gender":"Male"}
+// Unmarshalled Data :  {John Doe 30 Male}
