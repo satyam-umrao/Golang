@@ -41,3 +41,6 @@ func main() {
 	}
 	fmt.Println("Todo", todo)
 }
+
+// Output
+// Todo {1 1 delectus aut autem false}
