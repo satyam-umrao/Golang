@@ -47,3 +47,6 @@ func main() {
 	// fmt.Println("response : ", string(response))
 	fmt.Println("Response status : ", res.Status)
 }
+
+// output
+// Response status :  201 Created
