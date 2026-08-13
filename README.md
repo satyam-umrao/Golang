@@ -69,30 +69,30 @@ Example:
 
 ## 📁 Project Structure
     📦 Golang
-     ┣ 📄 01.Syntax
-     ┣ 📄 02.Variables
-     ┣ 📄 03.printFunc
-     ┣ 📄 04.inputFunc
-     ┣ 📄 05.functions
-     ┣ 📄 06.Arrays
-     ┣ 📄 07.Slice
-     ┣ 📄 08.if-else
-     ┣ 📄 09.switchCase
-     ┣ 📄 10.for-loop
-     ┣ 📄 11.Maps
-     ┣ 📄 12.Struct
-     ┣ 📄 13.Pointers
-     ┣ 📄 14.typeConversion
-     ┣ 📄 15.stringPackages
-     ┣ 📄 16.timePackage
-     ┣ 📄 17.defer
-     ┣ 📄 18.fileHandling
-     ┣ 📄 19.errorHandling
-     ┣ 📄 20.WebRequest
-     ┣ 📄 21.UrlHandling
-     ┣ 📄 22.Json
-     ┣ 📄 23.Get_(CRUD)
-     ┣ 📄 24.PostMethod
+     ┣ 📄 01. Syntax
+     ┣ 📄 02. Variables
+     ┣ 📄 03. printFunc
+     ┣ 📄 04. inputFunc
+     ┣ 📄 05. functions
+     ┣ 📄 06. Arrays
+     ┣ 📄 07. Slice
+     ┣ 📄 08. if-else
+     ┣ 📄 09. switchCase
+     ┣ 📄 10. for-loop
+     ┣ 📄 11. Maps
+     ┣ 📄 12. Struct
+     ┣ 📄 13. Pointers
+     ┣ 📄 14. typeConversion
+     ┣ 📄 15. stringPackages
+     ┣ 📄 16. timePackage
+     ┣ 📄 17. defer
+     ┣ 📄 18. fileHandling
+     ┣ 📄 19. errorHandling
+     ┣ 📄 20. WebRequest
+     ┣ 📄 21. UrlHandling
+     ┣ 📄 22. Json
+     ┣ 📄 23. Get_(CRUD)
+     ┣ 📄 24. PostMethod
      ┣ 📄 errorHandling.go
      ┣ 📄 README.md
 
