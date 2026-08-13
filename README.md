@@ -69,15 +69,14 @@ Example:
 
 ## 📁 Project Structure
     📦 Golang
-     ┣ 📄 1-Syntax.go
-     ┣ 📄 2-Variables.go
-     ┣ 📄 3-printFunc.go
-     ┣ 📄 4-inputFunc.go
-     ┣ 📄 5-functions.go
-     ┣ 📄 6-Arrays.go
-     ┣ 📄 7-Slice.go
-     ┣ 📄 8-if-else.go
-     ┣ 📄 9-switchCase.go
+     ┣ 📄 01.Syntax
+     ┣ 📄 02.Variables
+     ┣ 📄 03.printFunc
+     ┣ 📄 04.inputFunc
+     ┣ 📄 05.functions
+     ┣ 📄 06.Arrays
+     ┣ 📄 07.Slice
+     ┣ 📄 08.if-else
      ┣ 📄 09.switchCase
      ┣ 📄 10.for-loop
      ┣ 📄 11.Maps
