@@ -27,12 +27,26 @@ This repository is focused on helping learners understand core Go language const
 
 ## 🛠️ Features
 
+- 🌐 **Interactive Documentation Hub**: Modern web documentation with live code simulator, search (`Ctrl+K`), and syntax highlights
 - 🧪 Examples for Go fundamentals
 - 📚 Organized by topics / lessons
 - 🎯 Beginner-friendly content
 - 🧠 Practice files that reinforce concepts
 
 ---
+
+## 🚀 Interactive Documentation Web App
+
+Launch the interactive web documentation hub locally:
+
+```bash
+# Option 1: Start Vite Live Dev Server
+npm install
+npm run dev
+
+# Option 2: Open standalone single-file documentation directly in your browser
+# Double-click or open 'golang-docs.html'
+```
 
 ## 📥 Installation
 
