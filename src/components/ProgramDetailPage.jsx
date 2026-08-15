@@ -1,9 +1,11 @@
-import React, { useEffect } from 'react';
-import { X, ArrowLeft, Terminal, CheckCircle2, BookOpen, Layers, Zap, Code2, Cpu } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { X, ArrowLeft, Terminal, CheckCircle2, BookOpen, Layers, Zap, Code2, Cpu, FileCode, Sparkles } from 'lucide-react';
 import CodeBlock from './CodeBlock';
 import TerminalSimulator from './TerminalSimulator';
 
 export default function ProgramDetailPage({ program, onClose, onSelectProgram, allPrograms }) {
+  const [mobileTab, setMobileTab] = useState('workbench'); // 'workbench' | 'overview' | 'all'
+
   // Close on Escape key
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -39,7 +41,7 @@ export default function ProgramDetailPage({ program, onClose, onSelectProgram, a
             <span className="active">{program.title}</span>
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
             {prevProgram && (
               <button 
                 className="corona-term-btn-secondary"
@@ -68,9 +70,34 @@ export default function ProgramDetailPage({ program, onClose, onSelectProgram, a
           </div>
         </div>
 
+        {/* Mobile View Switcher (Visible only on mobile/tablets < 768px) */}
+        <div className="corona-modal-mobile-tabs">
+          <button 
+            className={`corona-modal-mobile-tab-btn ${mobileTab === 'workbench' ? 'active' : ''}`}
+            onClick={() => setMobileTab('workbench')}
+          >
+            <Code2 size={13} />
+            <span>Workbench & Run</span>
+          </button>
+          <button 
+            className={`corona-modal-mobile-tab-btn ${mobileTab === 'overview' ? 'active' : ''}`}
+            onClick={() => setMobileTab('overview')}
+          >
+            <BookOpen size={13} />
+            <span>Docs & Specs</span>
+          </button>
+          <button 
+            className={`corona-modal-mobile-tab-btn ${mobileTab === 'all' ? 'active' : ''}`}
+            onClick={() => setMobileTab('all')}
+          >
+            <Layers size={13} />
+            <span>All Sections</span>
+          </button>
+        </div>
+
         {/* Modal Body */}
         <div className="corona-modal-body-scrollable">
-          {/* Top Section: Header, Overview & Concept Specs */}
+          {/* Header Title & Badges */}
           <div className="corona-detail-top-section">
             <div className="corona-detail-badge-row">
               <span className="corona-index-badge">#{program.badge}</span>
@@ -87,8 +114,49 @@ export default function ProgramDetailPage({ program, onClose, onSelectProgram, a
               <code>$ {program.cliCommand}</code>
               <span style={{ color: 'var(--color-corona-muted)', fontSize: '0.76rem' }}>{program.folder}/{program.filename}</span>
             </div>
+          </div>
 
-            {/* Overview & Language Mechanics Grid */}
+          {/* Section 1: Side-by-Side Code & Interactive Simulator Workbench */}
+          {(mobileTab === 'workbench' || mobileTab === 'all' || window.innerWidth > 768) && (
+            <div className="corona-workbench-section" id="program-workbench">
+              <div className="corona-workbench-header">
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <Cpu size={18} color="#00ADD8" />
+                  <h2 style={{ fontSize: '1.2rem', fontWeight: 800 }}>Program Workbench & Live Execution</h2>
+                </div>
+                <span className="corona-stat-badge purple">
+                  Source Code & Live Simulator
+                </span>
+              </div>
+
+              <div className="corona-workbench-grid">
+                {/* Left: Production Source Code */}
+                <div className="corona-workbench-pane">
+                  <div className="corona-pane-title">
+                    <Code2 size={16} color="#8f5fe8" />
+                    <span>Production Source Code ({program.filename})</span>
+                  </div>
+                  <CodeBlock 
+                    code={program.code} 
+                    filename={`${program.folder}/${program.filename}`}
+                    language="go"
+                  />
+                </div>
+
+                {/* Right: Interactive Go Runtime Simulator */}
+                <div className="corona-workbench-pane">
+                  <div className="corona-pane-title">
+                    <Terminal size={16} color="#00d25b" />
+                    <span>Interactive Go Runtime Simulator</span>
+                  </div>
+                  <TerminalSimulator program={program} />
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Section 2: Overview & Language Mechanics */}
+          {(mobileTab === 'overview' || mobileTab === 'all' || window.innerWidth > 768) && (
             <div className="corona-overview-grid">
               {/* Deep Dive Description */}
               <div className="corona-overview-card">
@@ -106,106 +174,74 @@ export default function ProgramDetailPage({ program, onClose, onSelectProgram, a
                     <Zap size={16} color="#00d25b" />
                     <span>Key Language Mechanics</span>
                   </h3>
-                  <table className="corona-concepts-table">
-                    <thead>
-                      <tr>
-                        <th style={{ width: '40%' }}>Concept / Construct</th>
-                        <th>Go Specification & Behavior</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {program.concepts.map((concept, i) => (
-                        <tr key={i}>
-                          <td><code>{concept.name}</code></td>
-                          <td>{concept.desc}</td>
+                  <div style={{ overflowX: 'auto', width: '100%' }}>
+                    <table className="corona-concepts-table">
+                      <thead>
+                        <tr>
+                          <th style={{ width: '40%' }}>Concept / Construct</th>
+                          <th>Go Specification & Behavior</th>
                         </tr>
-                      ))}
-                    </tbody>
-                  </table>
+                      </thead>
+                      <tbody>
+                        {program.concepts.map((concept, i) => (
+                          <tr key={i}>
+                            <td><code>{concept.name}</code></td>
+                            <td>{concept.desc}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               )}
             </div>
-          </div>
+          )}
 
-          {/* Middle Section: Side-by-Side Code & Interactive Simulator Workbench */}
-          <div className="corona-workbench-section">
-            <div className="corona-workbench-header">
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <Cpu size={18} color="#00ADD8" />
-                <h2 style={{ fontSize: '1.25rem', fontWeight: 800 }}>Program Workbench & Live Execution</h2>
-              </div>
-              <span className="corona-stat-badge purple">
-                Source Code & Live Simulator
-              </span>
-            </div>
-
-            <div className="corona-workbench-grid">
-              {/* Left: Production Source Code */}
-              <div className="corona-workbench-pane">
-                <div className="corona-pane-title">
-                  <Code2 size={16} color="#8f5fe8" />
-                  <span>Production Source Code ({program.filename})</span>
+          {/* Section 3: Bottom Grid (Real-World Use Cases & Pro Tips) */}
+          {(mobileTab === 'overview' || mobileTab === 'all' || window.innerWidth > 768) && (
+            <div className="corona-bottom-grid">
+              {/* Real-World Use Cases */}
+              {program.useCases && program.useCases.length > 0 && (
+                <div className="corona-usecases-card">
+                  <h3 className="corona-section-heading">
+                    <CheckCircle2 size={16} color="#00d25b" />
+                    <span>Real-World Production Use Cases</span>
+                  </h3>
+                  <ul className="corona-usecase-list">
+                    {program.useCases.map((useCase, idx) => (
+                      <li key={idx} className="corona-usecase-item">
+                        <CheckCircle2 size={14} />
+                        <span>{useCase}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <CodeBlock 
-                  code={program.code} 
-                  filename={`${program.folder}/${program.filename}`}
-                  language="go"
-                />
-              </div>
+              )}
 
-              {/* Right: Interactive Go Runtime Simulator */}
-              <div className="corona-workbench-pane">
-                <div className="corona-pane-title">
-                  <Terminal size={16} color="#00d25b" />
-                  <span>Interactive Go Runtime Simulator</span>
+              {/* Quick Pro Tip */}
+              <div className="corona-tip-card">
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px', color: '#ffab00', fontWeight: '700', fontSize: '0.9rem' }}>
+                  <Zap size={16} />
+                  <span>CLI Execution Shortcut for {program.filename}</span>
                 </div>
-                <TerminalSimulator program={program} />
+                <p style={{ color: 'var(--color-corona-text-secondary)', fontSize: '0.86rem', lineHeight: '1.6', marginBottom: '12px' }}>
+                  Execute this file natively on your machine with Go 1.18+ or Go 1.26:
+                </p>
+                <div style={{
+                  backgroundColor: '#000000',
+                  padding: '10px 14px',
+                  borderRadius: 'var(--radius-sm)',
+                  border: '1px solid var(--color-corona-border)',
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '0.82rem',
+                  color: 'var(--color-corona-green)',
+                  wordBreak: 'break-all'
+                }}>
+                  $ {program.cliCommand}
+                </div>
               </div>
             </div>
-          </div>
-
-          {/* Bottom Section: Real-World Use Cases & Pro Tips */}
-          <div className="corona-bottom-grid">
-            {/* Real-World Use Cases */}
-            {program.useCases && program.useCases.length > 0 && (
-              <div className="corona-usecases-card">
-                <h3 className="corona-section-heading">
-                  <CheckCircle2 size={16} color="#00d25b" />
-                  <span>Real-World Production Use Cases</span>
-                </h3>
-                <ul className="corona-usecase-list">
-                  {program.useCases.map((useCase, idx) => (
-                    <li key={idx} className="corona-usecase-item">
-                      <CheckCircle2 size={14} />
-                      <span>{useCase}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-
-            {/* Quick Pro Tip */}
-            <div className="corona-tip-card">
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px', color: '#ffab00', fontWeight: '700', fontSize: '0.9rem' }}>
-                <Zap size={16} />
-                <span>CLI Execution Shortcut for {program.filename}</span>
-              </div>
-              <p style={{ color: 'var(--color-corona-text-secondary)', fontSize: '0.86rem', lineHeight: '1.6', marginBottom: '12px' }}>
-                Execute this file natively on your machine with Go 1.18+ or Go 1.26:
-              </p>
-              <div style={{
-                backgroundColor: '#000000',
-                padding: '10px 14px',
-                borderRadius: 'var(--radius-sm)',
-                border: '1px solid var(--color-corona-border)',
-                fontFamily: 'var(--font-mono)',
-                fontSize: '0.82rem',
-                color: 'var(--color-corona-green)'
-              }}>
-                $ {program.cliCommand}
-              </div>
-            </div>
-          </div>
+          )}
         </div>
       </div>
     </div>
