@@ -37,14 +37,18 @@ export default function App() {
 
   const handleSelectCategory = (cat) => {
     setSelectedCategory(cat);
-    const element = document.getElementById('programs-section');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    setSelectedProgram(null);
+    setTimeout(() => {
+      const element = document.getElementById('programs-section');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 50);
   };
 
   const handleNavigate = (section) => {
     setActiveSection(section);
+    setSelectedProgram(null); // return to page if modal is open
     const map = {
       hero: 'hero-section',
       programs: 'programs-section',
@@ -53,8 +57,10 @@ export default function App() {
     };
     const id = map[section];
     if (id) {
-      const el = document.getElementById(id);
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 50);
     }
   };
 
