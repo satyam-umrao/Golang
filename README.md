@@ -17,7 +17,7 @@
 
   <br />
 
-  [🌐 Live Web Preview]([#-quick-start](https://golang-steel-nine.vercel.app/)) • [📚 20+ Programs Catalog]([#-curriculum--exercises-catalog](https://golang-steel-nine.vercel.app/)) • [⚡ Toolchain Setup]([#-development-toolchains](https://golang-steel-nine.vercel.app/)) • [🛠️ Contributing]([#-contributing](https://github.com/satyam-umrao/Golang"))
+  [🌐 Live Web Preview](https://golang-steel-nine.vercel.app/) • [📚 20+ Programs Catalog](https://golang-steel-nine.vercel.app/) • [⚡ Toolchain Setup](https://golang-steel-nine.vercel.app/) • [🛠️ Contributing](https://github.com/satyam-umrao/Golang")
 
 </div>
 
