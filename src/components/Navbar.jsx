@@ -1,8 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import { Search, Menu, X, Terminal, ExternalLink, Sparkles, BookOpen, Layers, PlayCircle, Wrench, Code2, ShieldCheck, Zap } from 'lucide-react';
+import { 
+  Search, 
+  Menu, 
+  X, 
+  ExternalLink, 
+  Sparkles, 
+  BookOpen, 
+  Wrench, 
+  PlayCircle 
+} from 'lucide-react';
 import { GithubIcon } from './Icons';
 
-export default function Navbar({ onOpenSearch, onSelectCategory, activeSection, onNavigate }) {
+export default function Navbar({ 
+  onOpenSearch = () => {}, 
+  onSelectCategory, 
+  activeSection = 'hero', 
+  onNavigate = () => {} 
+}) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
   const [mobileSearchQuery, setMobileSearchQuery] = useState('');
@@ -14,12 +28,13 @@ export default function Navbar({ onOpenSearch, onSelectCategory, activeSection, 
     } else {
       document.body.style.overflow = '';
     }
+
     return () => {
       document.body.style.overflow = '';
     };
   }, [mobileMenuOpen]);
 
-  // Close mobile menu on Escape key
+  // Close mobile menu/search on Escape key
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') {
@@ -46,11 +61,25 @@ export default function Navbar({ onOpenSearch, onSelectCategory, activeSection, 
     onNavigate(section);
   };
 
+  const handleKeyActivation = (e, callback) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      callback();
+    }
+  };
+
   return (
     <header className="corona-navbar">
       <div className="corona-container corona-navbar-inner">
         {/* Brand */}
-        <div className="corona-brand" onClick={() => handleNavClick('hero')} role="button" tabIndex={0}>
+        <div 
+          className="corona-brand" 
+          onClick={() => handleNavClick('hero')} 
+          onKeyDown={(e) => handleKeyActivation(e, () => handleNavClick('hero'))}
+          role="button" 
+          tabIndex={0}
+          aria-label="GoDocHub Home"
+        >
           <div className="corona-brand-logo">
             <span>GO</span>
           </div>
@@ -60,27 +89,31 @@ export default function Navbar({ onOpenSearch, onSelectCategory, activeSection, 
           <span className="corona-version-badge">v1.26</span>
         </div>
 
-        {/* Desktop Nav Links (Controlled via CSS media queries) */}
-        <nav className="corona-nav-links">
+        {/* Desktop Nav Links */}
+        <nav className="corona-nav-links" aria-label="Main Navigation">
           <button 
+            type="button"
             className={`corona-nav-link ${activeSection === 'hero' ? 'active' : ''}`}
             onClick={() => handleNavClick('hero')}
           >
             Overview
           </button>
           <button 
+            type="button"
             className={`corona-nav-link ${activeSection === 'programs' ? 'active' : ''}`}
             onClick={() => handleNavClick('programs')}
           >
             Programs (25)
           </button>
           <button 
+            type="button"
             className={`corona-nav-link ${activeSection === 'setup' ? 'active' : ''}`}
             onClick={() => handleNavClick('setup')}
           >
             Toolchain Setup
           </button>
           <button 
+            type="button"
             className={`corona-nav-link ${activeSection === 'playground' ? 'active' : ''}`}
             onClick={() => handleNavClick('playground')}
           >
@@ -92,9 +125,11 @@ export default function Navbar({ onOpenSearch, onSelectCategory, activeSection, 
         <div 
           className="corona-search-pill" 
           onClick={() => onOpenSearch()}
+          onKeyDown={(e) => handleKeyActivation(e, () => onOpenSearch())}
           role="button"
           tabIndex={0}
           title="Search docs (Ctrl + K)"
+          aria-label="Search documentation"
         >
           <Search size={14} />
           <span>Search 25 programs...</span>
@@ -114,6 +149,7 @@ export default function Navbar({ onOpenSearch, onSelectCategory, activeSection, 
           </a>
 
           <button 
+            type="button"
             className="corona-btn-primary corona-nav-btn-playground"
             onClick={() => handleNavClick('playground')}
           >
@@ -123,9 +159,10 @@ export default function Navbar({ onOpenSearch, onSelectCategory, activeSection, 
 
           {/* Mobile Search Icon Button */}
           <button 
+            type="button"
             className="corona-btn-icon corona-mobile-search-toggle"
             onClick={() => {
-              setMobileSearchOpen(prev => !prev);
+              setMobileSearchOpen((prev) => !prev);
               if (mobileMenuOpen) setMobileMenuOpen(false);
             }}
             aria-label="Search"
@@ -136,9 +173,10 @@ export default function Navbar({ onOpenSearch, onSelectCategory, activeSection, 
 
           {/* Mobile Hamburger Toggle Button */}
           <button 
+            type="button"
             className={`corona-btn-icon corona-mobile-menu-toggle ${mobileMenuOpen ? 'active' : ''}`}
             onClick={() => {
-              setMobileMenuOpen(prev => !prev);
+              setMobileMenuOpen((prev) => !prev);
               if (mobileSearchOpen) setMobileSearchOpen(false);
             }}
             aria-label="Toggle Navigation Menu"
@@ -168,6 +206,7 @@ export default function Navbar({ onOpenSearch, onSelectCategory, activeSection, 
             type="button" 
             className="corona-btn-icon" 
             onClick={() => setMobileSearchOpen(false)}
+            aria-label="Close search"
           >
             <X size={18} />
           </button>
@@ -176,9 +215,12 @@ export default function Navbar({ onOpenSearch, onSelectCategory, activeSection, 
 
       {/* Mobile Fullscreen Drawer Navigation */}
       {mobileMenuOpen && (
-        <div className="corona-mobile-drawer" onClick={(e) => {
-          if (e.target === e.currentTarget) setMobileMenuOpen(false);
-        }}>
+        <div 
+          className="corona-mobile-drawer" 
+          onClick={(e) => {
+            if (e.target === e.currentTarget) setMobileMenuOpen(false);
+          }}
+        >
           <div className="corona-mobile-drawer-inner">
             <div className="corona-mobile-drawer-header">
               <span className="corona-mobile-drawer-label">NAVIGATION MENU</span>
@@ -187,6 +229,7 @@ export default function Navbar({ onOpenSearch, onSelectCategory, activeSection, 
 
             <div className="corona-mobile-drawer-links">
               <button 
+                type="button"
                 className={`corona-mobile-drawer-link ${activeSection === 'hero' ? 'active' : ''}`}
                 onClick={() => handleNavClick('hero')}
               >
@@ -203,6 +246,7 @@ export default function Navbar({ onOpenSearch, onSelectCategory, activeSection, 
               </button>
 
               <button 
+                type="button"
                 className={`corona-mobile-drawer-link ${activeSection === 'programs' ? 'active' : ''}`}
                 onClick={() => handleNavClick('programs')}
               >
@@ -219,6 +263,7 @@ export default function Navbar({ onOpenSearch, onSelectCategory, activeSection, 
               </button>
 
               <button 
+                type="button"
                 className={`corona-mobile-drawer-link ${activeSection === 'setup' ? 'active' : ''}`}
                 onClick={() => handleNavClick('setup')}
               >
@@ -235,6 +280,7 @@ export default function Navbar({ onOpenSearch, onSelectCategory, activeSection, 
               </button>
 
               <button 
+                type="button"
                 className={`corona-mobile-drawer-link ${activeSection === 'playground' ? 'active' : ''}`}
                 onClick={() => handleNavClick('playground')}
               >
@@ -253,6 +299,7 @@ export default function Navbar({ onOpenSearch, onSelectCategory, activeSection, 
 
             {/* Quick Search Button Inside Drawer */}
             <button 
+              type="button"
               className="corona-drawer-search-btn"
               onClick={() => {
                 setMobileMenuOpen(false);

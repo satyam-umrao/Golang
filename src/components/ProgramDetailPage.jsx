@@ -40,24 +40,6 @@ export default function ProgramDetailPage({ program, onClose, onSelectProgram, a
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            {prevProgram && (
-              <button 
-                className="corona-term-btn-secondary"
-                onClick={() => onSelectProgram(prevProgram)}
-                title={prevProgram.title}
-              >
-                ← #{prevProgram.badge}
-              </button>
-            )}
-            {nextProgram && (
-              <button 
-                className="corona-term-btn-secondary"
-                onClick={() => onSelectProgram(nextProgram)}
-                title={nextProgram.title}
-              >
-                #{nextProgram.badge} →
-              </button>
-            )}
             <button 
               className="corona-modal-close-btn"
               onClick={onClose}
