@@ -1,6 +1,5 @@
 <div align="center">
-
-  <img src="https://raw.githubusercontent.com/golang/go/master/doc/gopher/frontpage.png" alt="Go Gopher" width="130" />
+  <img src="https://s5.ezgif.com/tmp/ezgif-563ca25e44eeaaea.gif" alt="Go Gopher" width="330" />
 
   # ⚡ GoDocHub: Interactive Go 1.26 Documentation & Runtime Simulator
 
@@ -18,7 +17,7 @@
 
   <br />
 
-  [🌐 Live Web Preview](#-quick-start) • [📚 25 Programs Catalog](#-curriculum--exercises-catalog) • [⚡ Toolchain Setup](#-development-toolchains) • [🛠️ Contributing](#-contributing)
+  [🌐 Live Web Preview](#-quick-start) • [📚 20+ Programs Catalog](#-curriculum--exercises-catalog) • [⚡ Toolchain Setup](#-development-toolchains) • [🛠️ Contributing](#-contributing)
 
 </div>
 
@@ -236,23 +235,6 @@ Each exercise inside the web documentation includes a **Dual-Pane Side-by-Side W
 
 ---
 
-## 🎨 Design System & Aesthetics
-
-The web documentation is styled using the **Corona Dark Theme Specification**:
-
-| Color Token | Hex Code | Purpose |
-|---|---|---|
-| **Midnight Obsidian** | `#000000` / `#0d0e12` | High-contrast zero eye-strain background surfaces |
-| **Elevated Surface** | `#191c24` | Container cards, modal windows, and code blocks |
-| **Graphite Border** | `#2c2e33` | Hairline grid borders and structural dividers |
-| **Corona Emerald** | `#00d25b` | Primary actions, execution buttons, and success tags |
-| **Go Cyan** | `#00ADD8` | Official Go brand accents, headers, and active links |
-| **Electric Blue** | `#0090e7` | Interactive focus rings, search accents, and tags |
-| **Royal Violet** | `#8f5fe8` | Source code highlights and playground badges |
-| **Crimson Coral** | `#e44c65` | Announcements and error logs |
-
----
-
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
@@ -264,11 +246,6 @@ Contributions, issues, and feature requests are welcome!
 5. Open a **Pull Request**
 
 ---
-
-## 📜 License
-
-This project is open-sourced under the **MIT License** — see the [LICENSE](LICENSE) file for details.
-
 <div align="center">
   <sub>Built with ❤️ for the Go developer community by <a href="https://github.com/satyam-umrao">Satyam Umrao</a>.</sub>
 </div>
