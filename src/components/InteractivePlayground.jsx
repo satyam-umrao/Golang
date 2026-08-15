@@ -64,21 +64,12 @@ export default function InteractivePlayground() {
             </p>
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <label style={{ fontSize: '0.84rem', color: 'var(--color-corona-muted)' }}>Load Template:</label>
+          <div className="corona-playground-template-wrap">
+            <label className="corona-template-label">Load Template:</label>
             <select
               value={selectedExampleId}
               onChange={(e) => handleSelectExample(e.target.value)}
-              style={{
-                backgroundColor: '#0b0c0f',
-                color: '#ffffff',
-                border: '1px solid var(--color-corona-border)',
-                padding: '8px 12px',
-                borderRadius: 'var(--radius-sm)',
-                fontFamily: 'var(--font-mono)',
-                fontSize: '0.84rem',
-                outline: 'none'
-              }}
+              className="corona-template-select"
             >
               {golangPrograms.map(p => (
                 <option key={p.id} value={p.id}>
